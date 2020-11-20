@@ -1,0 +1,31 @@
+{ 
+  "DONATION_OBJECTIF": "Objectif actuel : {OBJECTIF}",
+  "DONATION_TOTAL": "Montant total des dons : {TOTAL}",
+  "DONATION_TAB_EDIT_SUCCESS": "L'objectif à bien été changé sur '{NAME}' !",
+  "DONATION_ADMIN_SETTINGS": "Paramètres des donations (Objectif)",
+  "DONATION_EDIT_SETTINGS": "Confirmer",
+  "DONATION_EDIT_NULL": "Cette valeur ne peux pas être vide !",
+  "DONATION_EDIT_ZERO": "Cette valeur ne peux pas être inférieur ou égale à 0 !",
+
+  "DONATION_EMAIL_EDIT_SUCCESS": "L'email de donation (PayPal) à bien été définie sur {EMAIL} !",
+  "DONATION_ADMIN_SETTINGS_EMAIL": "Définissez votre email pour recevoir les donations (PayPal)",
+  
+  "DONATION_DESCRIPTION_EDIT_SUCCESS": "La description de donation à bien été définie !",
+  "DONATION_ADMIN_SETTINGS_DESCRIPTION": "Définissez votre description pour donner envie à l'utilisateur de faire des donations",
+  
+  "DONATION_ADMIN_RENITIALIZE": "Cliquez sur le bouton ci-dessous pour réinitialiser les éléments 'objectif, total et description",
+  "DONATION_RENITIALIZE": "Rénitialiser",
+  "DONATION_RESET_SUCCESS": "Les éléments 'objectif, total et description' on bien été rénitialisez !",
+  
+  "INDEX_DESCRIPTION": "Grâce à votre soutien, vous pouvez nous remerciez pour le serveur que nous vous proposons, dans lequel vous avez accès gratuitement et sans limite ! Vous participerez ainsi au bon fonctionnement du serveur.",
+
+  "OBJECTIF_DONATION": "Objectif actuel : ",
+  "TOTAL_DONATION": "Montant total des dons : ",
+  "POURCENTAGE_DONATION": "Pourcentage : ",
+
+  "VALIDE_EUR": "Veuillez indiquer le montant de votre don (€)",
+
+  "MAKE_DONATION": "Continuer",
+  "MAKE_DONATION_NO_CONNECTED": "Vous devez être connecter pour faire une donation !",
+  "INDEX_DONATION_INVALID": "Vous ne pouvez pas faire de Donation, veuillez contacter un Administrateur !"  
+}

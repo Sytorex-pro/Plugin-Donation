@@ -1,0 +1,104 @@
+.container-donation {
+	padding-right:15px;
+	padding-left:15px;
+	margin-right:auto;
+	margin-left:auto
+}
+
+.firstbox-donation {
+	margin: 1em;
+	padding: 1em;
+}
+
+.fad-title {
+	text-transform: uppercase;
+	text-decoration: underline;
+	text-decoration-color:#3377ff;
+	text-underline-position: under;
+	line-height: 0.25;
+	font-weight: bold;
+}
+
+.index-description {
+	padding-left: 50px;
+}
+
+.index-description li {
+	margin-bottom: 0px
+}
+
+.bq-donation {
+	margin-left: 50px;
+	border-left: 5px solid #3377ff;
+}
+
+.donation-login
+{
+	padding-left: 50px;
+}
+
+.fud-yes {
+	background-color: #26b826;
+	height: 50px;
+	width: 100%;
+	border: none;
+	outline: none;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	font-size: 150%;
+	color: #fff !important;
+}
+
+.fud-yes:active .fud-yes:hover .fud-yes:focus .fud-yes:link .fud-yes:visited {
+	border:none;
+	outline: none;
+	text-decoration: none;
+}
+
+.fud-yes:hover {
+	background-color: #00b500;
+}
+
+.fud-no {
+	background-color: #c81e1e;
+	height: 50px;
+	width: 100%;
+	border: none;
+	outline: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 150%;
+	color: #fff !important;
+}
+
+.fud-no:active .fud-no:hover .fud-no:focus {
+	border:none;
+	outline: none;
+	text-decoration: none
+}
+
+.fud-no:hover {
+	background-color: #941f1f;
+}
+
+@media (min-width:768px){.container-donation{width:750px}}
+@media (min-width:992px){.container-donation{width:970px}}
+@media (min-width:1200px){.container-donation{width:1170px}}
+@media (min-width:1300px){.container-donation{width:1300px}}
+
+/* ** W3 ** */
+
+.w3-xlarge {
+	margin-left: 50px;
+	border-radius: 5px;
+}
+.w3-xlarge .w3-container {
+	color: black !important;
+}
+
+.w3-container {
+	border-radius: 5px 0px 0px 5px;
+	padding: 0.01em 0.4% !important;
+}

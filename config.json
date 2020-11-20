@@ -1,0 +1,34 @@
+{
+	"name":"Donation",
+	"admin_menus": {
+	  "Donation": {
+		"index": 5,
+		"icon": "credit-card",
+		"menu":{
+		"Configurations": {
+			"icon": "cogs",
+			"route": "/admin/donation"
+		  }
+	  }
+  }
+	},
+	"navbar_routes": {
+	  "Donation": "/donation"
+	},
+	"author":"LaSkyMania",
+	"version":"1.0.0",
+	"apiID":-1,
+	"useEvents":false,
+	"permissions" : {
+		"available" : [
+		"DONATION_ADMIN"
+	  ],
+	  "default" : {
+		"0" : [],
+		"2" : []
+	  }
+	},
+	"requirements" : {
+	  "CMS" : "^1.2.0"
+	}
+  }

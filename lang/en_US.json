@@ -1,0 +1,31 @@
+{ 
+  "DONATION_OBJECTIF": "Current objectif : {OBJECTIF}",
+  "DONATION_TOTAL": "Total amount of donations : {TOTAL}",
+  "DONATION_TAB_EDIT_SUCCESS": "The objectif has been changed to {NAME} !",
+  "DONATION_ADMIN_SETTINGS": "Donation settings (Objectif)",
+  "DONATION_EDIT_SETTINGS": "Confirm",
+  "DONATION_EDIT_NULL": "This value cannot be empty !",
+  "DONATION_EDIT_ZERO": "This value cannot be less than or equal to 0 !",
+
+  "DONATION_EMAIL_EDIT_SUCCESS": "Donation email (PayPal) has been defined on {EMAIL} !",
+  "DONATION_ADMIN_SETTINGS_EMAIL": "Defined your email to get donations (PayPal)",
+
+  "DONATION_DESCRIPTION_EDIT_SUCCESS": "La description de donation à bien été définie !",
+  "DONATION_ADMIN_SETTINGS_DESCRIPTION": "Define your description to make the user want to donate",
+  
+  "DONATION_ADMIN_RENITIALIZE": "Click on the button below to reset the items' goal, total and description",
+  "DONATION_RENITIALIZE": "Reset",
+  "DONATION_RESET_SUCCESS": "The elements 'objective, total and description' have been reset!",
+
+  "INDEX_DESCRIPTION": "Thanks to your support, you can thank us for the server that we offer you, in which you have free and unlimited access! You will thus participate in the proper functioning of the server.",
+
+  "OBJECTIF_DONATION": "Actual objectif : ",
+  "TOTAL_DONATION": "Total amount of donations : ",
+  "POURCENTAGE_DONATION": "Pourcentage : ",
+
+  "VALIDE_EUR": "Please indicate the amount of your donation (€)",
+
+  "MAKE_DONATION": "Continue",
+  "MAKE_DONATION_NO_CONNECTED": "You have to be connected for make a donation !",
+  "INDEX_DONATION_INVALID": "You cannot make a donation, please contact an Administrator !"
+}

@@ -4,7 +4,7 @@
 Le plugin Donation ajoute un système de don sur votre site, permettant à vos joueurs d'effectuer des dons pour votre serveur (VotreSite/donation).
 
 ## Installation | FTP
-1. Cliquez sur "Clone or download" sur la page "https://github.com/LaSkyMania/Plugin-Donation".
+1. Cliquez sur "Clone or download" sur la page "https://github.com/MineWeb/Plugin-Donation".
 2. Téléchargez et enregistrez le ZIP, puis extrayez le.
 3. Renommez le fichier "Plugin-Donation-master" par "Donation".
 4. Déplacez le fichier dans votre FTP à l'adresse "/app/Plugin".

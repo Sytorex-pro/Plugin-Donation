@@ -13,6 +13,20 @@ class DonationController extends AppController {
         $donations = $this->Donation->find('all');
         $this->set(compact('donations'));
     }
+    
+    public function canceled() {
+        $this->set('title_for_layout', 'Donation');
+        $this->loadModel('Donation.Donation');
+        $donations = $this->Donation->find('all');
+        $this->set(compact('donations'));
+    }
+    
+    public function return() {
+        $this->set('title_for_layout', 'Donation');
+        $this->loadModel('Donation.Donation');
+        $donations = $this->Donation->find('all');
+        $this->set(compact('donations'));
+    }
 
     public function admin_index() {
         if($this->isConnected AND $this->User->isAdmin()){

@@ -47,7 +47,7 @@
                     <button type="button" id="button-paypal" class="fud-yes text-center btn" data-toggle="modal" data-target="#confirmation"><?= $Lang->get('MAKE_DONATION') ?></button>
                     <br />
                 <?php else: ?>
-                    <a type="button" href="#login" class="fud-no text-center"><?= $Lang->get('MAKE_DONATION_NO_CONNECTED') ?></a>
+                    <a type="button" data-toggle="modal" data-target="#login" class="fud-no text-center"><?= $Lang->get('MAKE_DONATION_NO_CONNECTED') ?></a>
                     <br />
                 <?php endif; ?>
             </div>
@@ -62,14 +62,15 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        <?php $srv_name = $_SERVER['SERVER_NAME']; ?>
                         <div class="modal-body text-center">
                             <p>Cliquer sur le bouton pour payer et valider votre don</p>
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="form-horizontal">
                                 <input name="currency_code" type="hidden" value="EUR" />
                                 <input name="shipping" type="hidden" value="0.00" />
                                 <input name="tax" type="hidden" value="0.00" />
-                                <input name="return" type="hidden" value="<?= $this->Html->url(array('controller' => 'donnation', 'action' => 'index', 'return'), true) ?>" />
-                                <input name="cancel_return" type="hidden" value="<?= $this->Html->url(array('controller' => 'donnation', 'action' => 'index', 'error'), true) ?>" />
+                                <input name="return" type="hidden" value="https://<?= $srv_name ?>/donation/return" />
+                                <input name="cancel_return" type="hidden" value="https://<?= $srv_name ?>/donation/canceled" />
                                 <input name="notify_url" type="hidden" value="<?= $this->Html->url(array('controller' => 'donnation', 'action' => 'ipn'), true) ?>" />
                                 <input name="cmd" type="hidden" value="_xclick" />
                                 <input name="business" id="mail_paypal" type="hidden" value="<?= $donations[0]['Donation']['email'] ?>" />
@@ -81,7 +82,7 @@
                                 <input type="hidden" name="cbt" value="<?= $Lang->get('SHOP__PAYPAL_RETURN_MSG', array('{WEBSITE_NAME}' => $website_name)) ?>" />
                                 <input type="hidden" name="charset" value="UTF-8" />
                                 <input type="hidden" name="amount" id="output-value-amount-paypal" />
-                                <button type="submit" name="submit" value="paypal" class="btn btn-primary btn-block" data-toggle="modal" data-target="#step2" data-dismiss="modal">Payer <span id="output-amount-paypal"></span>€ avec Paypal <i class="fab fa-paypal" aria-hidden="true"></i></button>
+                                <button type="submit" name="submit" value="paypal" class="btn btn-primary btn-block">Payer <span id="output-amount-paypal"></span>€ avec Paypal <i class="fab fa-paypal" aria-hidden="true"></i></button>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -108,7 +109,42 @@
         <?php } ?>
     </div>
 </div>
-
+<div class="modal fade" id="donationreturn" tabindex="-1" role="dialog" aria-labelledby="Return-of-donation" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Return-of-donation">Annulation du paiement</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Votre paiement n'a pas pu être validé car vous l'avez annulé ! 😦</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermé</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="donationcancel" tabindex="-1" role="dialog" aria-labelledby="Cancel-of-donation" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Cancel-of-donation">Annulation du paiement</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Votre paiement n'a pas pu être validé car vous l'avez annulé ! 😦</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermé</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     function numberController(inputId, outputInner, outputValue) {
         var get = document.getElementById(inputId).value;

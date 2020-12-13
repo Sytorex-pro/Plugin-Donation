@@ -13,16 +13,16 @@ class DonationAppSchema extends CakeSchema {
         'id' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false, 'key' => 'primary'],
         'objectif' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false],
         'total' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false],
-        'email' => ['type' => 'varchar', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
-        'description' => ['type' => 'varchar', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false]
+        'email' => ['type' => 'string', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
+        'description' => ['type' => 'string', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false]
     ];
 
     public $donation__paypal_histories = [
         'id' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false, 'key' => 'primary'],
-        'payment_id' => ['type' => 'varchar', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
+        'payment_id' => ['type' => 'string', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
         'user_id' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false],
         'offer_id' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false],
-        'payment_amount' => ['type' => 'varchar', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
+        'payment_amount' => ['type' => 'string', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
         'item' => ['type' => 'varchar', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
         'created' => ['type' => 'datetime', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false]
     ];

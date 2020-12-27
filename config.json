@@ -1,23 +1,19 @@
 {
 	"name":"Donation",
+	"author":"LaSkyMania",
+	"version":"1.0.2",
 	"admin_menus": {
-	  "Donation": {
-		"index": 5,
-		"icon": "credit-card",
-		"menu":{
-		"Configurations": {
-			"icon": "cogs",
-			"route": "/admin/donation"
-		  }
-	  }
-  }
+	  	"GLOBAL__ADMIN_PLUGINS": {
+		  	"Donation": {
+				"index": 1,
+				"icon": "credit-card",
+				"route": "/admin/donation"
+			}
+	  	}
 	},
 	"navbar_routes": {
 	  "Donation": "/donation"
 	},
-	"author":"LaSkyMania",
-	"version":"1.0.1",
-	"apiID":-1,
 	"useEvents":false,
 	"permissions" : {
 		"available" : [
@@ -31,4 +27,4 @@
 	"requirements" : {
 	  "CMS" : "^1.2.0"
 	}
-  }
+}

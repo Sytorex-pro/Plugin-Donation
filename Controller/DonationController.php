@@ -1,5 +1,20 @@
 <?php
+
 class DonationController extends AppController {
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+
+        $this->loadModel('Donation.Donation');
+        $donation = $this->Donation->find('first');
+        if (empty($donation)){
+            $this->Donation->saveAll([
+                'objectif' => 100,
+                'total' => 0,
+                'description' => $this->Lang->get('INDEX_DESCRIPTION'),
+            ]);
+        }
+    }
 
     public function noConnectError() {
         $this->set('messageTitle', "Vous n'êtes pas connecté");
@@ -10,29 +25,29 @@ class DonationController extends AppController {
     public function index() {
         $this->set('title_for_layout', 'Donation');
         $this->loadModel('Donation.Donation');
-        $donations = $this->Donation->find('all');
-        $this->set(compact('donations'));
+        $donation = $this->Donation->find('first');
+        $this->set(compact('donation'));
     }
     
     public function canceled() {
         $this->set('title_for_layout', 'Donation');
         $this->loadModel('Donation.Donation');
-        $donations = $this->Donation->find('all');
-        $this->set(compact('donations'));
+        $donation = $this->Donation->find('first');
+        $this->set(compact('donation'));
     }
     
     public function return() {
         $this->set('title_for_layout', 'Donation');
         $this->loadModel('Donation.Donation');
-        $donations = $this->Donation->find('all');
-        $this->set(compact('donations'));
+        $donation = $this->Donation->find('first');
+        $this->set(compact('donation'));
     }
 
     public function admin_index() {
         if($this->isConnected AND $this->User->isAdmin()){
             $this->loadModel('Donation.Donation');
-            $donations = $this->Donation->find('all');
-            $this->set(compact('donations'));
+            $donation = $this->Donation->find('first');
+            $this->set(compact('donation'));
 
             $this->layout = 'admin';
         }else {
@@ -40,7 +55,7 @@ class DonationController extends AppController {
         }
     }
 
-    function admin_ajax_edit_tab() {
+    function admin_ajax_edit_goal() {
         if (!$this->Permissions->can('DONATION_ADMIN'))
             throw new ForbiddenException();
         if (!$this->request->is('post'))
@@ -50,17 +65,17 @@ class DonationController extends AppController {
             $obj = $this->request->data['objectif'];
         if ($this->request->data['objectif'] <= 0)
             return $this->sendJSON(['statut' => false, 'msg' => $this->Lang->get('DONATION_EDIT_ZERO')]);    
-            
+        
         $this->loadModel('Donation.Donation');
-        $this->Donation->updateAll(
-            array('objectif' => $obj),
-            array('id' => $this->request->data['idDonation'])
-        );
-
         $donation = $this->Donation->find('first');
         if (empty($donation))
-            throw new NotFoundException();
-        $this->loadModel('Donation.Donation');
+            throw new ForbiddenException();
+
+        $this->Donation->updateAll(
+            array('objectif' => $obj),
+            array('id' => $donation['Donation']['id'])
+        );
+
         $this->sendJSON(['statut' => true, 'msg' => $this->Lang->get('DONATION_TAB_EDIT_SUCCESS', ['{NAME}' => $obj])]);
     }
 
@@ -71,15 +86,17 @@ class DonationController extends AppController {
             throw new BadRequestException();
         if (empty($this->request->data['emailDon']))
             return $this->sendJSON(['statut' => false, 'msg' => $this->Lang->get('DONATION_EDIT_NULL')]);
-            $mail = $this->request->data['emailDon'];
-            $id = $this->request->data['idDon'];
-
+        $mail = $this->request->data['emailDon'];
+        
         $this->loadModel('Donation.Donation');
-        $this->Donation->read(null, $id);
-        $this->Donation->set(array(
-            'email' =>  $this->request->data['emailDon'],
-        ));
+        $donation = $this->Donation->find('first');
+        if (empty($donation))
+            throw new NotFoundException();
+        
+        $this->Donation->read(null, $donation['Donation']['id']);
+        $this->Donation->set(array('email' =>  $this->request->data['emailDon'],));
         $this->Donation->save();
+
         $this->sendJSON(['statut' => true, 'msg' => $this->Lang->get('DONATION_EMAIL_EDIT_SUCCESS', ['{EMAIL}' => $mail])]);
     }
     
@@ -90,15 +107,17 @@ class DonationController extends AppController {
             throw new BadRequestException();
         if (empty($this->request->data['descriptionDon']))
             return $this->sendJSON(['statut' => false, 'msg' => $this->Lang->get('DONATION_EDIT_NULL')]);
-            $description = $this->request->data['descriptionDon'];
-            $id = $this->request->data['idDon'];
-
+        $description = $this->request->data['descriptionDon'];
+        
         $this->loadModel('Donation.Donation');
-        $this->Donation->read(null, $id);
-        $this->Donation->set(array(
-            'description' =>  $this->request->data['descriptionDon'],
-        ));
+        $donation = $this->Donation->find('first');
+        if (empty($donation))
+            throw new NotFoundException();
+
+        $this->Donation->read(null, $donation['Donation']['id']);
+        $this->Donation->set(array('description' =>  $this->request->data['descriptionDon'],));
         $this->Donation->save();
+
         $this->sendJSON(['statut' => true, 'msg' => $this->Lang->get('DONATION_DESCRIPTION_EDIT_SUCCESS')]);
     }
 
@@ -108,10 +127,13 @@ class DonationController extends AppController {
         if (!$this->request->is('post'))
             throw new BadRequestException();
         
-        $id = $this->request->data['idDon'];
+        $this->loadModel('Donation.Donation');
+        $donation = $this->Donation->find('first');
+        if (empty($donation))
+            throw new NotFoundException();
 
         $this->loadModel('Donation.Donation');
-        $this->Donation->read(null, $id);
+        $this->Donation->read(null, $donation['Donation']['id']);
         $this->Donation->set(array(
             'objectif' => 100,
             'total' => 0,
@@ -121,6 +143,7 @@ class DonationController extends AppController {
         $this->sendJSON(['statut' => true, 'msg' => $this->Lang->get('DONATION_RESET_SUCCESS')]);
     }
 
+    // Inspiré du plugin Shop
     public function ipn() { // cf. https://developer.paypal.com/docs/classic/ipn/gs_IPN/
         $this->autoRender = false;
         if ($this->request->is('post')) { //On vérifie l'état de la requête

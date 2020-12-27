@@ -1,8 +1,8 @@
 <?= $this->Html->css('Donation.donation-style.css?'.rand(1, 1000000))?>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <?php
-    $objectif = $donations[0]['Donation']['objectif'];
-    $total = $donations[0]['Donation']['total'];
+    $objectif = $donation['Donation']['objectif'];
+    $total = $donation['Donation']['total'];
     $current = (round($total / $objectif * 100, 1));
 ?>
 
@@ -17,14 +17,16 @@
         <h1 class="fad-title text-center">Faire un don</h1>
         <br />
         <div class="index-description">
-            <p><?= (!empty($donations[0]['Donation']['description'])) ? nl2br($donations[0]['Donation']['description']) : $Lang->get('INDEX_DESCRIPTION') ?></p>
+            <p><?= (!empty($donation['Donation']['description'])) ? nl2br($donation['Donation']['description']) : $Lang->get('INDEX_DESCRIPTION') ?></p>
         </div>
         <br />
-        <?php if(!empty($donations[0]['Donation']['email']) || !empty($donations[0]['Donation']['id']) || !empty($total) || !empty($objectif)) { ?>
+        <?php if(!empty($donation['Donation']['email']) || !empty($donation['Donation']['id']) || !empty($total) || !empty($objectif)) { ?>
             <blockquote class="bq-donation">
-                <?= $Lang->get('OBJECTIF_DONATION') ?><?= $objectif ?>€<br>
-                <?= $Lang->get('TOTAL_DONATION') ?><?= $total ?>€<br>
-                <?= $Lang->get('POURCENTAGE_DONATION') ?><?= $current ?>%<br>
+                <div style="margin-left: 5px;">
+                    <?= $Lang->get('OBJECTIF_DONATION') ?><?= $objectif ?>€<br>
+                    <?= $Lang->get('TOTAL_DONATION') ?><?= $total ?>€<br>
+                    <?= $Lang->get('POURCENTAGE_DONATION') ?><?= $current ?>%<br>
+                </div>
             </blockquote>
             <br />
                 <div class="w3-light-grey w3-xlarge">
@@ -73,7 +75,7 @@
                                 <input name="cancel_return" type="hidden" value="https://<?= $srv_name ?>/donation/canceled" />
                                 <input name="notify_url" type="hidden" value="<?= $this->Html->url(array('controller' => 'donnation', 'action' => 'ipn'), true) ?>" />
                                 <input name="cmd" type="hidden" value="_xclick" />
-                                <input name="business" id="mail_paypal" type="hidden" value="<?= $donations[0]['Donation']['email'] ?>" />
+                                <input name="business" id="mail_paypal" type="hidden" value="<?= $donation['Donation']['email'] ?>" />
                                 <input name="item_name" type="hidden" id="output-value-item_name-paypal" />
                                 <input name="no_note" type="hidden" value="1" />
                                 <input name="lc" type="hidden" value="FR" />
@@ -93,9 +95,11 @@
             </div>
         <?php } else { ?>
             <blockquote class="bq-donation">
-                <?= $Lang->get('OBJECTIF_DONATION') ?>NaN€<br>
-                <?= $Lang->get('TOTAL_DONATION') ?>NaN€<br>
-                <?= $Lang->get('POURCENTAGE_DONATION') ?>NaN%<br>
+                <div style="margin-left: 5px;">
+                    <?= $Lang->get('OBJECTIF_DONATION') ?>NaN€<br>
+                    <?= $Lang->get('TOTAL_DONATION') ?>NaN€<br>
+                    <?= $Lang->get('POURCENTAGE_DONATION') ?>NaN%<br>
+                </div>
             </blockquote>
             <br />
             <div class="w3-light-grey w3-xlarge">

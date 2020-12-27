@@ -13,9 +13,9 @@
   "DONATION_DESCRIPTION_EDIT_SUCCESS": "La description de donation à bien été définie !",
   "DONATION_ADMIN_SETTINGS_DESCRIPTION": "Définissez votre description pour donner envie à l'utilisateur de faire des donations",
   
-  "DONATION_ADMIN_RENITIALIZE": "Cliquez sur le bouton ci-dessous pour réinitialiser les éléments 'objectif, total et description",
+  "DONATION_ADMIN_RENITIALIZE": "Cliquez sur le bouton ci-dessous pour réinitialiser les éléments (objectif, total et description)",
   "DONATION_RENITIALIZE": "Rénitialiser",
-  "DONATION_RESET_SUCCESS": "Les éléments 'objectif, total et description' on bien été rénitialisez !",
+  "DONATION_RESET_SUCCESS": "Les éléments (objectif, total et description) on bien été rénitialisez !",
   
   "INDEX_DESCRIPTION": "Grâce à votre soutien, vous pouvez nous remerciez pour le serveur que nous vous proposons, dans lequel vous avez accès gratuitement et sans limite ! Vous participerez ainsi au bon fonctionnement du serveur.",
 

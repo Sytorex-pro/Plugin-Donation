@@ -23,7 +23,7 @@ class DonationAppSchema extends CakeSchema {
         'user_id' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false],
         'offer_id' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false],
         'payment_amount' => ['type' => 'string', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
-        'item' => ['type' => 'varchar', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
-        'created' => ['type' => 'datetime', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false]
+        'item' => ['type' => 'string', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
+        'created' => ['type' => 'timestamp', 'null' => false, 'default' => 'CURRENT_TIMESTAMP'],
     ];
 }

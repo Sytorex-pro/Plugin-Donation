@@ -1,7 +1,7 @@
 {
 	"name": "Donation",
 	"author": "LaSkyMania",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"admin_menus": {
 		"GLOBAL__ADMIN_PLUGINS": {
 			"Donation": {

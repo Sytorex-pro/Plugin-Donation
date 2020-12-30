@@ -13,7 +13,7 @@ class DonationAppSchema extends CakeSchema {
         'id' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false, 'key' => 'primary'],
         'objectif' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false],
         'total' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 11, 'unsigned' => false],
-        'email' => ['type' => 'string', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
+        'email' => ['type' => 'string', 'null' => true, 'default' => null, 'length' => 255, 'unsigned' => false],
         'description' => ['type' => 'string', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false]
     ];
 
